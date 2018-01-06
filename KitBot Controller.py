@@ -81,30 +81,30 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+def KitBotCommands(left, right):
+    while True:
+        joysticks()
+        roboSpeed()
+        roboDirection()
+        stdin, stdout, stderr = client.exec_command('''
+        cd ~/robotonomy
+        python
+        import RoboPiLib as RPL
+        import setup
+        RPL.servoWrite(0,%d) % motorL
+        RPL.servoWrite(1,%d) % motorR
+        exit()
+        ''')
+
 # SSH (tested on personal computer, but not robot)
 def sshInit():
     client = paramiko.SSHClient()
     client.load_system_host_keys()
-    client.set_missing_host_key_policy(paramiko.WarningPolicy)
+    client.set_missing_host_key_policy(paramiko.WarningPolicy())
 
     client.connect(hostname, port=port, username=username, password=password)
-
-    stdin, stdout, stderr = client.exec_command("cd robotonomy")
-    stdin, stdout, stderr = client.exec_command("python")
-    stdin, stdout, stderr = client.exec_command("import RoboPiLib as RPL")
-    stdin, stdout, stderr = client.exec_command("import setup")
-
-# For KitBot
-def KitBotSpeed(speed):
-    center = 1500
-    return speed + center
 
 # -------------------Main Program--------------------------
 sshInit()
 while True:
-    joysticks()
-    roboSpeed()
-    roboDirection()
-    stdin, stdout, stderr = client.exec_command("RPL.servoWrite(0,%d)" % KitBotSpeed(motorL))
-    stdin, stdout, stderr = client.exec_command("RPL.servoWrite(1,%d)" % KitBotSpeed(-motorR))
-    print stdout.read(),
+    KitBotCommands()
