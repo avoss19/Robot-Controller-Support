@@ -1,5 +1,12 @@
 import pygame # controller
-import paramiko # ssh
+import sys, paramiko # ssh
+
+# SSH login
+hostname = "192.168.21.113" # ip address
+password = "Engineering!1"
+
+username = "student"
+port = 22
 
 # controller mapping
 speedMapping = 0 # 0 for joystick, 1 for triggers
@@ -13,9 +20,6 @@ yDeadZoneRight = 0.06
 # motor speeds (assumes there is the same possible speeds going in reverse)
 maxMotorL = 1000
 maxMotorR = 1000
-
-def ssh():
-    "hey"
 
 # Initialize pygame
 pygame.init()
@@ -75,8 +79,23 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+def SSH(command):
+    client = paramiko.SSHClient()
+    client.load_system_host_keys()
+    client.set_missing_host_key_policy(paramiko.WarningPolicy)
+
+    client.connect(hostname, port=port, username=username, password=password)
+
+    stdin, stdout, stderr = client.exec_command(command)
+    print stdout.read(),
+
+# -------------------Main Program--------------------------
+SSH("python")
+SSH("import setup")
+SSH("import RoboPiLib as RPL")
 while True:
-   joysticks()
-   roboSpeed()
-   roboDirection()
-   print motorL, motorR, motorSpeedL, motorSpeedR
+    joysticks()
+    roboSpeed()
+    roboDirection()
+    SSH("RPL.servoWrite(0,%d)" % motorL)
+    SSH("RPL.servoWrite(1,%d)" % motorR)
