@@ -1,5 +1,6 @@
 # Robot-Controller-Support
 
+- Only tested w/ ps4 controller
 - use PS4 controller due to native support w/out drivers
 
 ## Required Packages
