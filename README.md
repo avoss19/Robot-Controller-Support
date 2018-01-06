@@ -4,9 +4,15 @@
 
 ## Required Packages
 
-- pip
-- pygame
-- paramiko
+- pip </br>
+$ curl -O http://python-distribute.org/distribute_setup.py </br>
+$ python distribute_setup.py </br>
+$ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py </br>
+$ python get-pip.py
+- pygame </br>
+$ pip install pygame
+- paramiko </br>
+$ pip install paramiko
 
 ## Current Issues
 
