@@ -23,3 +23,7 @@ $ pip install paramiko
 ## Communication with robot
 
 - Uses laptop and use ssh to connect to robot
+
+## Current Issues
+
+- Communication w/ robot: Wired works, but not wireless (ssh)
