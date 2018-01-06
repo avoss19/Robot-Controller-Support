@@ -119,4 +119,4 @@ while True:
     roboDirection()
     switchControllerSceme()
     RPL.serverWrite(0,KitBotSpeed(motorL))
-    RPL.serverWrite(1,KitBotSpeed(motorR))
+    RPL.serverWrite(1,KitBotSpeed(-motorR))
