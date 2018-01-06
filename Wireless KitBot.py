@@ -112,7 +112,7 @@ def sshInit():
     client.connect(hostname, port=port, username=username, password=password)
 
 def KitBotCommands(left, right):
-    stdin, stdout, stderr = client.exec_command('python /Robot-Controller-Support %d %d' % (left, right))
+    stdin, stdout, stderr = client.exec_command('python Robot-Controller-Support/Robot.py %d %d' % (left, right))
 
 # -------------------Main Program--------------------------
 sshInit()
