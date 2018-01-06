@@ -15,6 +15,7 @@ $ pip install pygame
 - paramiko </br>
 $ pip install paramiko
 
-## Current Issues
+## Mapping Options
 
-- Right trigger not setup correctly for speedMapping, use right joystick instead
+- can choose to control speed w/ right and left triggers or use right joystick
+- recommend using right joystick due to trigger dead zones
