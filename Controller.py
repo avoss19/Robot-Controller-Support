@@ -1,5 +1,7 @@
 import pygame # controller
 import sys, paramiko # ssh
+import robotonomy.RoboPiLib as RoboPiLib # KitBot
+import robotonomy.setup # KitBot
 
 # SSH login
 hostname = "192.168.21.113" # ip address
@@ -79,6 +81,7 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+# SSH (tested on personal computer, but not robot)
 def SSH(command):
     client = paramiko.SSHClient()
     client.load_system_host_keys()
@@ -89,13 +92,18 @@ def SSH(command):
     stdin, stdout, stderr = client.exec_command(command)
     print stdout.read(),
 
+# For KitBot
+def KitBotSpeed(speed):
+    center = 1500
+    return speed + center
+
 # -------------------Main Program--------------------------
-SSH("python")
-SSH("import setup")
-SSH("import RoboPiLib as RPL")
+SSH("python") # not tested
+SSH("import setup") # not tested
+SSH("import RoboPiLib as RPL") # not tested
 while True:
     joysticks()
     roboSpeed()
     roboDirection()
-    SSH("RPL.servoWrite(0,%d)" % motorL)
-    SSH("RPL.servoWrite(1,%d)" % motorR)
+    SSH("RPL.servoWrite(0,%d)" % KitBotSpeed(motorL)) # not tested
+    SSH("RPL.servoWrite(1,%d)" % KitBotSpeed(-motorR)) # not tested
