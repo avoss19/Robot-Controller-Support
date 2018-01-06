@@ -1,3 +1,6 @@
+# Tested w/ PS4 controller on Mac OSX
+# Comment out KitBot lines to use with different device/robot
+
 import pygame # controller
 import sys, paramiko # ssh
 import robotonomy.RoboPiLib as RoboPiLib # KitBot
