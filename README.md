@@ -25,6 +25,7 @@ $ pip install paramiko
 
 - can choose to control speed w/ right and left triggers or use right joystick
 - recommend using right joystick due to trigger dead zones
+- can changing mapping during use by pressing right bumper (does not work 100% of the time, may need to hold it for a sec or press multiple times)
 
 ## Communication with robot
 
