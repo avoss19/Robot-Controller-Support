@@ -1,10 +1,7 @@
 # Tested w/ PS4 controller on Mac OSX
-# Comment out KitBot lines to use with different device/robot
 
 import pygame # controller
 import sys, paramiko # ssh
-import robotonomy.RoboPiLib as RoboPiLib # KitBot
-import robotonomy.setup # KitBot
 
 # SSH login
 hostname = "192.168.21.113" # ip address
@@ -92,6 +89,7 @@ def sshInit():
 
     client.connect(hostname, port=port, username=username, password=password)
 
+    stdin, stdout, stderr = client.exec_command("cd robotonomy")
     stdin, stdout, stderr = client.exec_command("python")
     stdin, stdout, stderr = client.exec_command("import RoboPiLib as RPL")
     stdin, stdout, stderr = client.exec_command("import setup")
