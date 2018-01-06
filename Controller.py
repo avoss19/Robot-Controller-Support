@@ -43,28 +43,40 @@ def joysticks():
 
 # control speed
 def roboSpeed():
-    global motorL, motorR
+    global motorSpeedL, motorSpeedR
 
     if -yDeadZoneRight < yAxisRight < yDeadZoneLeft:
-        motorL = 0
-        motorR = 0
+        motorSpeedL = 0
+        motorSpeedR = 0
 
     elif speedMapping == 0:
-        motorL = maxMotorL * -yAxisRight
-        motorR = maxMotorR * -yAxisRight
-        
+        motorSpeedL = maxMotorL * -yAxisRight
+        motorSpeedR = maxMotorR * -yAxisRight
+
     if speedMapping == 1:
         if triggerRight >= 0:
-            motorL = .5 * maxMotorL * (triggerRight+1)
-            motorR = .5 * maxMotorL * (triggerRight+1)
+            motorSpeedL = .5 * maxMotorL * (triggerRight+1)
+            motorSpeedR = .5 * maxMotorL * (triggerRight+1)
         elif triggerLeft > 0:
-            motorL = .5 * maxMotorL * -(triggerLeft+1)
-            motorR = .5 * maxMotorL * -(triggerLeft+1)
+            motorSpeedL = .5 * maxMotorL * -(triggerLeft+1)
+            motorSpeedR = .5 * maxMotorL * -(triggerLeft+1)
 
 def roboDirection():
-    "hey"
+    global motorL, motorR
+
+    if -xDeadZoneLeft < xAxisLeft < xDeadZoneLeft:
+        motorL = motorSpeedL
+        motorR = motorSpeedR
+
+    elif xAxisLeft <= 0:
+        motorL = motorSpeedL - (motorSpeedL * (-xAxisLeft))
+        motorR = motorSpeedR
+    elif xAxisLeft > 0:
+        motorL = motorSpeedL
+        motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
 while True:
    joysticks()
    roboSpeed()
-   print motorL, motorR, xAxisRight, yAxisRight, triggerRight
+   roboDirection()
+   print motorL, motorR, motorSpeedL, motorSpeedR
