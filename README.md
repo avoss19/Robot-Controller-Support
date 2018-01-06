@@ -4,7 +4,9 @@
 
 ## Required Packages
 
+- pip
 - pygame
+- paramiko
 
 ## Current Issues
 

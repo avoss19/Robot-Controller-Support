@@ -47,7 +47,6 @@ def roboSpeed():
         motorL = maxMotorL * -triggerRight
         motorR = maxMotorL * -triggerRight
 
-# select right joystick or right trigger for speed control
 def roboDirection():
     "hey"
 
