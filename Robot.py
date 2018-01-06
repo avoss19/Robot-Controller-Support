@@ -1,5 +1,5 @@
 # -----------------File on Robot--------------------
-# Reason for this file: Less down on latency
+# Reason for this file: Less latency
 
 # Example:
 import argv
