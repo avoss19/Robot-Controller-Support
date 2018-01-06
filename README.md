@@ -19,3 +19,7 @@ $ pip install paramiko
 
 - can choose to control speed w/ right and left triggers or use right joystick
 - recommend using right joystick due to trigger dead zones
+
+## Communication with robot
+
+- Uses laptop and use ssh to connect to robot
