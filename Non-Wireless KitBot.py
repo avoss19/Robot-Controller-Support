@@ -22,8 +22,8 @@ xDeadZoneRight = 0.06
 yDeadZoneRight = 0.06
 
 # motor speeds (assumes there is the same possible speeds going in reverse)
-maxMotorL = 1000
-maxMotorR = 1000
+maxMotorL = 500
+maxMotorR = 500
 
 # Initialize pygame
 pygame.init()
@@ -83,6 +83,10 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+def KitBotSpeed(speed):
+    center = 1500
+    return speed + center
+
 # SSH (tested on personal computer, but not robot)
 def SSH(command):
     client = paramiko.SSHClient()
@@ -99,5 +103,5 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
-    RPL.serverWrite(0,motorL)
-    RPL.serverWrite(1,motorR)
+    RPL.serverWrite(0,KitBotSpeed(motorL))
+    RPL.serverWrite(1,KitBotSpeed(motorR))
