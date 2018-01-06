@@ -102,6 +102,12 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+def switchControllerSceme():
+    global speedMapping
+    joystick = pygame.joystick.Joystick(0)
+    if joystick.get_button(5) == 1:
+        speedMapping = (speedMapping + 1) % 2
+
 def KitBotSpeed(speed):
     center = 1500
     return speed + center
@@ -111,5 +117,6 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
+    switchControllerSceme()
     RPL.serverWrite(0,KitBotSpeed(motorL))
     RPL.serverWrite(1,KitBotSpeed(motorR))

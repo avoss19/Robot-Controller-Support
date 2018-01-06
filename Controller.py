@@ -99,6 +99,12 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
+def switchControllerSceme():
+    global speedMapping
+    joystick = pygame.joystick.Joystick(0)
+    if joystick.get_button(5) == 1:
+        speedMapping = (speedMapping + 1) % 2
+
 # SSH (tested on personal computer, but not robot)
 def SSH(command):
     client = paramiko.SSHClient()
@@ -115,4 +121,5 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
+    switchControllerSceme()
     print motorL, motorR
