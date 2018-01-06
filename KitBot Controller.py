@@ -3,15 +3,21 @@
 import pygame # controller
 import sys, paramiko # ssh
 
+print "#"*60
+print "Welcome to the BSM robot controller support python program!"
+print "#"*60
+print "Please select a controller sceme:"
+print "0. Speed control w/ right joystick"
+print "1. Speed control w/ triggers"
+speedMapping = input("$: ")
+print "#"*60
+
 # SSH login
 hostname = "192.168.21.113" # ip address
 password = "Engineering!1"
 
 username = "student"
 port = 22
-
-# controller mapping
-speedMapping = 0 # 0 for joystick, 1 for triggers
 
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06

@@ -3,15 +3,33 @@
 import pygame # controller
 import sys, paramiko # ssh
 
+# Weclome Screen
+print "#"*60
+print "Welcome to the BSM robot controller support python program!"
+print "#"*60
+print "I recommend choosing the joystick layout."
+print "For support please visit https://github.com/avoss19/Robot-Controller-Support"
+print "#"*60
+print "Please select a controller sceme:"
+print "0. Speed control w/ right joystick"
+print "1. Speed control w/ triggers"
+speedMapping = input("$: ")
+print "#"*60
+
+# Defualts to joystick control if input was not put in correctly
+if speedMapping == 0:
+    speedMapping = 0
+if speedMapping == 1:
+    speedMapping = 1
+else:
+    speedMapping = 0
+
 # SSH login
 hostname = "" # ip address
 password = ""
 
 username = ""
 port = 22 # default port for ssh
-
-# controller mapping
-speedMapping = 0 # 0 for joystick, 1 for triggers
 
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06
