@@ -30,10 +30,6 @@ $ pip install paramiko
 
 - Uses laptop and use ssh to connect to robot
 
-## Current Issues
-
-- Communication w/ robot: Wired works, but not wireless (ssh)
-
 ## Troubleshooting
 
 You will receive this error if the program does not recognize your controller
