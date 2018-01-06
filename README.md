@@ -3,6 +3,12 @@
 - Only tested w/ ps4 controller
 - use PS4 controller due to native support w/out drivers
 
+## Setup
+
+- Make sure you have the required packages
+- clone this repo to the robot
+- clone on computer then run one of the python programs, like "Wireless KitBot.py"
+
 ## Required Packages
 
 - pip </br>
