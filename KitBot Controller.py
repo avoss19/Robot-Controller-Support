@@ -99,15 +99,6 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
-def KitBotCommands(left, right):
-    while True:
-        joysticks()
-        roboSpeed()
-        roboDirection()
-        stdin, stdout, stderr = client.exec_command('''
-        ls
-        ''')
-
 def KitBotSpeed(speed):
     center = 1500
     return speed + center
@@ -120,7 +111,13 @@ def sshInit():
 
     client.connect(hostname, port=port, username=username, password=password)
 
+def KitBotCommands(left, right):
+    stdin, stdout, stderr = client.exec_command('python /Robot-Controller-Support %d %d' % (left, right))
+
 # -------------------Main Program--------------------------
 sshInit()
 while True:
-    KitBotCommands()
+    joysticks()
+    roboSpeed()
+    roboDirection()
+    KitBotCommands(KitBotSpeed(motorL), -KitBotSpeed(motorR))
