@@ -5,14 +5,26 @@ import sys, paramiko # ssh
 import robotonomy.RoboPiLib as RPL
 import setup
 
+# Weclome Screen
 print "#"*60
 print "Welcome to the BSM robot controller support python program!"
+print "#"*60
+print "I recommend choosing the joystick layout."
+print "For support please visit https://github.com/avoss19/Robot-Controller-Support"
 print "#"*60
 print "Please select a controller sceme:"
 print "0. Speed control w/ right joystick"
 print "1. Speed control w/ triggers"
 speedMapping = input("$: ")
 print "#"*60
+
+# Defualts to joystick control if input was not put in correctly
+if speedMapping == 0:
+    speedMapping = 0
+if speedMapping == 1:
+    speedMapping = 1
+else:
+    speedMapping = 0
 
 # SSH login
 hostname = "" # ip address
