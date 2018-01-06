@@ -87,14 +87,12 @@ def KitBotCommands(left, right):
         roboSpeed()
         roboDirection()
         stdin, stdout, stderr = client.exec_command('''
-        cd ~/robotonomy
-        python
-        import RoboPiLib as RPL
-        import setup
-        RPL.servoWrite(0,%d) % motorL
-        RPL.servoWrite(1,%d) % motorR
-        exit()
+        ls
         ''')
+
+def KitBotSpeed(speed):
+    center = 1500
+    return speed + center
 
 # SSH (tested on personal computer, but not robot)
 def sshInit():
