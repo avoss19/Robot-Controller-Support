@@ -12,6 +12,7 @@ Partial Support:
 - Xbox 360 Controller - changing controller scheme on the fly doesn't work
 
 Not Supported:
+- Asus GamePad
 
 Not Tested:
 - Logitech controllers
