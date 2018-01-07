@@ -99,7 +99,7 @@ def roboDirection():
         motorL = motorSpeedL
         motorR = motorSpeedR + (motorSpeedR * (-xAxisLeft))
 
-def switchControllerSceme():
+def switchControllerScheme():
     global speedMapping
     joystick = pygame.joystick.Joystick(0)
     if joystick.get_button(5) == 1:
@@ -126,5 +126,5 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
-    switchControllerSceme()
+    switchControllerScheme()
     KitBotCommands(KitBotSpeed(motorL), -KitBotSpeed(motorR))

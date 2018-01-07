@@ -1,7 +1,19 @@
 # Robot-Controller-Support
 
-- Only tested w/ ps4 controller
-- use PS4 controller due to native support w/out drivers
+Welcome to Robot Controller Support! This repo was created for the BSM robot.
+
+## Supported Controllers/Tested Controllers
+
+Full Support:
+- PS4 Controller
+
+Partial Support:
+- Xbox One Controller - changing controller scheme on the fly doesn't work
+- Xbox 360 Controller - changing controller scheme on the fly doesn't work
+
+Not Supported:
+
+Not Tested:
 
 ## Setup
 
@@ -30,6 +42,10 @@ $ pip install paramiko
 ## Communication with robot
 
 - Uses laptop and use ssh to connect to robot
+
+## Issues
+
+- Xbox One & Xbox 360 Controller can't swap controller scheme on the fly
 
 ## Troubleshooting
 
