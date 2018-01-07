@@ -12,7 +12,7 @@ print "#"*60
 print "I recommend choosing the joystick layout."
 print "For support please visit https://github.com/avoss19/Robot-Controller-Support"
 print "#"*60
-print "Please select a controller sceme:"
+print "Please select a controller scheme:"
 print "0. Speed control w/ right joystick"
 print "1. Speed control w/ triggers"
 speedMapping = input("$: ")
