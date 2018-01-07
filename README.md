@@ -18,7 +18,7 @@ Not Tested:
 - Logitech controllers
 - PS3 controller
 - PS2 controller
-- original xbox controller
+- Original Xbox controller
 - Wii U Pro Controller
 - Wii Pro Controller
 
