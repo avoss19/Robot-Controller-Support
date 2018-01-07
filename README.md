@@ -19,6 +19,8 @@ Not Tested:
 - PS3 controller
 - PS2 controller
 - original xbox controller
+- Wii U Pro Controller
+- Wii Pro Controller
 
 ## Xbox Controllers (Xbox one & Xbox 360)
 
