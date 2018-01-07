@@ -1,5 +1,3 @@
-# Tested w/ PS4 controller on Mac OSX
-
 import pygame # controller
 import sys, paramiko # ssh
 
