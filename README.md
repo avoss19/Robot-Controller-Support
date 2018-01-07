@@ -34,15 +34,21 @@ Not Tested:
 
 ## Required Packages
 
-- pip </br>
-$ curl -O http://python-distribute.org/distribute_setup.py </br>
-$ python distribute_setup.py </br>
-$ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py </br>
+- pip
+```
+$ curl -O http://python-distribute.org/distribute_setup.py
+$ python distribute_setup.py
+$ curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $ python get-pip.py
-- pygame </br>
+```
+- pygame
+```
 $ pip install pygame
-- paramiko </br>
+```
+- paramiko
+```
 $ pip install paramiko
+```
 
 ## Mapping Options
 
