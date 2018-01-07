@@ -5,11 +5,11 @@ Welcome to Robot Controller Support! This repo was created for the BSM robot. Th
 ## Supported Controllers/Tested Controllers
 
 Full Support:
-- PS4 Controller
+- PS4 Controller (wired or wireless)
 
 Partial Support:
-- Xbox One Controller - changing controller scheme on the fly doesn't work
-- Xbox 360 Controller - changing controller scheme on the fly doesn't work
+- Xbox One Controller (wired) - changing controller scheme on the fly doesn't work
+- Xbox 360 Controller (wired) - changing controller scheme on the fly doesn't work
 
 Not Supported:
 - Asus GamePad
