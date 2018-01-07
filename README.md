@@ -61,7 +61,7 @@ $ pip install paramiko
 You will receive this error if the program does not recognize your controller
 
 Traceback (most recent call last): </br>
-&nbsp;&nbsp;&nbsp;  File "Controller.py", line 116, in <module> </br>
+&nbsp;&nbsp;&nbsp;  File "Controller.py", line 122, in <module> </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    roboSpeed() </br>
 &nbsp;&nbsp;&nbsp;  File "Controller.py", line 72, in roboSpeed </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    if -yDeadZoneRight < yAxisRight < yDeadZoneLeft: </br>
