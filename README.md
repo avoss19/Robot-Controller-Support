@@ -14,6 +14,10 @@ Partial Support:
 Not Supported:
 
 Not Tested:
+- Logitech controllers
+- PS3 controller
+- PS2 controller
+- original xbox controller
 
 ## Xbox Controllers (Xbox one & Xbox 360)
 
