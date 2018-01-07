@@ -15,7 +15,7 @@ Not Supported:
 
 Not Tested:
 
-## Xbox Controllers (Xbox one & Xbox 460)
+## Xbox Controllers (Xbox one & Xbox 360)
 
 - requires this driver https://github.com/360Controller/360Controller/releases
 
