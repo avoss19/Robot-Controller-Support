@@ -1,7 +1,12 @@
 import pygame # controller
 import robotonomy.RoboPiLib as RPL
 import robotonomy.setup
-import pygame.display
+RPL.RoboPiInit("/dev/ttyAMA0",115200)
+
+import sys, tty, termios, signal
+import os
+
+os.putenv('SDL_VIDEODRIVER', 'fbcon')
 
 # Weclome Screen
 print "#"*60
@@ -24,14 +29,6 @@ if speedMapping == 1:
 else:
     speedMapping = 0
 
-# SSH login
-hostname = "" # ip address
-password = ""
-
-username = ""
-port = 22 # default port for ssh
-
-
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06
 yDeadZoneLeft = 0.06
@@ -44,8 +41,8 @@ maxMotorR = 500
 
 # Initialize pygame
 pygame.init()
-pygame.display.init()
 pygame.joystick.init()
+pygame.display.init()
 
 # get joystick readings
 def joysticks():
@@ -111,11 +108,33 @@ def KitBotSpeed(speed):
     center = 1500
     return speed + center
 
+def interrupted(signum, frame): # this is the method called at the end of the alarm]
+    stopAll()
+
+def stopAll():
+  try:
+    RPL.servoWrite(motorL,1500)
+    RPL.servoWrite(motorR,1500)
+  except:
+    print "error except"
+    pass
+
 # -------------------Main Program--------------------------
+# Current Issues:
+# Does not read input from computer
+
+fd = sys.stdin.fileno() # I don't know what this does
+old_settings = termios.tcgetattr(fd) # this records the existing console settings that are later changed with the tty.setraw... line so that they can be replaced when the loop ends
+tty.setraw(sys.stdin.fileno()) # this sets the style of the input
+SHORT_TIMEOUT = 0.255
 while True:
+    events = pygame.event.get()
+    for e in events:
+        pass
     joysticks()
     roboSpeed()
     roboDirection()
+    print motorL, motorR
+    RPL.servoWrite(0,KitBotSpeed(motorL))
+    RPL.servoWrite(1,KitBotSpeed(-motorR))
     switchControllerScheme()
-    RPL.serverWrite(0,KitBotSpeed(motorL))
-    RPL.serverWrite(1,KitBotSpeed(-motorR))
