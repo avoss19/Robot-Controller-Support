@@ -1,6 +1,6 @@
 import pygame # controller
-import robotonomy.RoboPiLib as RPL
-import robotonomy.setup
+#import robotonomy.RoboPiLib as RPL
+#import robotonomy.setup
 
 # Weclome Screen
 print "#"*60
@@ -110,5 +110,5 @@ while True:
     roboDirection()
     switchControllerScheme()
     print motorL, motorR
-    RPL.servoWrite(0,int(KitBotSpeed(motorL)))
-    RPL.servoWrite(1,int(KitBotSpeed(-motorR)))
+    #RPL.servoWrite(0,int(KitBotSpeed(motorL)))
+    #RPL.servoWrite(1,int(KitBotSpeed(-motorR)))
