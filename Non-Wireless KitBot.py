@@ -119,18 +119,13 @@ def stopAll():
     print "error except"
     pass
 
+events = pygame.event.get()
+for e in events:
+    pass
 # -------------------Main Program--------------------------
 # Current Issues:
 # Does not read input from computer
-
-fd = sys.stdin.fileno() # I don't know what this does
-old_settings = termios.tcgetattr(fd) # this records the existing console settings that are later changed with the tty.setraw... line so that they can be replaced when the loop ends
-tty.setraw(sys.stdin.fileno()) # this sets the style of the input
-SHORT_TIMEOUT = 0.255
 while True:
-    events = pygame.event.get()
-    for e in events:
-        pass
     joysticks()
     roboSpeed()
     roboDirection()
