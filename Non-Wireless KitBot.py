@@ -1,6 +1,6 @@
 import pygame # controller
 import robotonomy.RoboPiLib as RPL
-import setup
+import robotonomy.setup
 
 # Weclome Screen
 print "#"*60
