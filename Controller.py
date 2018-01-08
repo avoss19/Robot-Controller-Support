@@ -1,5 +1,6 @@
 import pygame # controller
 import sys, paramiko # ssh
+import pygame.display
 
 # Weclome Screen
 print "#"*60
@@ -41,6 +42,7 @@ maxMotorR = 1000
 
 # Initialize pygame
 pygame.init()
+pygame.display.init()
 pygame.joystick.init()
 
 # get joystick readings
