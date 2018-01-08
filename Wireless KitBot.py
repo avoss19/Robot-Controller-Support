@@ -24,12 +24,8 @@ if speedMapping == 1:
 else:
     speedMapping = 0
 
-# SSH login
-hostname = "192.168.21.102" # ip address
-password = "Engineering!1"
-
-username = "student"
-port = 22
+RPL.pinMode(motorL,0)
+RPL.pinMode(motorL,1)
 
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06
@@ -110,6 +106,8 @@ def KitBotSpeed(speed):
     return speed + center
 
 # -------------------Main Program--------------------------
+signal.signal(signal.SIGALRM, interrupted) # this calls the 'interrupted' method when the alarm goes off
+tty.setraw(sys.stdin.fileno()) # this sets the style of the input
 while True:
   signal.setitimer(signal.ITIMER_REAL,SHORT_TIMEOUT) # this sets the alarm
   ch = sys.stdin.read(1) # this reads one character of input without requiring an enter keypress
@@ -120,4 +118,5 @@ while True:
   joysticks()
   roboSpeed()
   roboDirection()
+  RPL.servoWrite(KitBotSpeed(motorL, motorR))
   switchControllerScheme()
