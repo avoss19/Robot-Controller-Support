@@ -1,6 +1,6 @@
 import ftplib
 import time
-ftp = ftplib.FTP('192.168.21.113', 'avoss19', 'Good!682')
+ftp = ftplib.FTP('192.168.21.223', 'avoss19', 'Good!682')
 ftp.cwd('Desktop/Robot-Controller-Support')
 past = time.time()
 gFile = open("ftpTest.txt", "wb")
