@@ -107,6 +107,14 @@ def KitBotSpeed(speed):
 def interrupted(signum, frame): # this is the method called at the end of the alarm]
     stopAll()
 
+def stopAll():
+  try:
+    RPL.servoWrite(motorL,1500)
+    RPL.servoWrite(motorR,1500)
+  except:
+    print "error except"
+    pass
+
 # -------------------Main Program--------------------------
 # Current Issues:
 # Does not read input from computer
