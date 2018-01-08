@@ -104,6 +104,9 @@ def KitBotSpeed(speed):
     center = 1500
     return speed + center
 
+def interrupted(signum, frame): # this is the method called at the end of the alarm]
+    stopAll()    
+
 # -------------------Main Program--------------------------
 # Current Issues:
 # Does not read input from computer
