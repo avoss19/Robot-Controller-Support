@@ -125,5 +125,5 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
-    RPL.servoWrite(KitBotSpeed(motorL, motorR))
+    RPL.servoWrite(KitBotSpeed(motorL, -motorR))
     switchControllerScheme()
