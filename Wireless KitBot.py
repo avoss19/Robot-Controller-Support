@@ -26,9 +26,6 @@ if speedMapping == 1:
 else:
     speedMapping = 0
 
-RPL.pinMode(motorL,0)
-RPL.pinMode(motorL,1)
-
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06
 yDeadZoneLeft = 0.06
@@ -125,6 +122,6 @@ while True:
     joysticks()
     roboSpeed()
     roboDirection()
-    RPL.servoWrite(KitBotSpeed(0, motorL))
-    RPL.servoWrite(KitBotSpeed(1, -motorR))
+    RPL.servoWrite(0,KitBotSpeed(motorL))
+    RPL.servoWrite(1,KitBotSpeed(-motorR))
     switchControllerScheme()
