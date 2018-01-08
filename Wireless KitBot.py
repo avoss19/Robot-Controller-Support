@@ -1,5 +1,4 @@
 import pygame # controller
-import sys, paramiko # ssh
 RPL.RoboPiInit("/dev/ttyAMA0",115200)
 
 import sys, tty, termios, signal
@@ -109,18 +108,6 @@ def switchControllerScheme():
 def KitBotSpeed(speed):
     center = 1500
     return speed + center
-
-# SSH (tested on personal computer, but not robot)
-def sshInit():
-    global client
-    client = paramiko.SSHClient()
-    client.load_system_host_keys()
-    client.set_missing_host_key_policy(paramiko.WarningPolicy())
-
-    client.connect(hostname, port=port, username=username, password=password)
-
-def KitBotCommands(left, right):
-    stdin, stdout, stderr = client.exec_command('python Robot-Controller-Support/Robot.py %d %d' % (left, right))
 
 # -------------------Main Program--------------------------
 while True:
