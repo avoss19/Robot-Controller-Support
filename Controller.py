@@ -30,8 +30,8 @@ xDeadZoneRight = 0.06
 yDeadZoneRight = 0.06
 
 # motor speeds (assumes there is the same possible speeds going in reverse)
-maxMotorL = 500
-maxMotorR = 500
+maxMotorL = 1000
+maxMotorR = 1000
 
 # Initialize pygame
 pygame.init()
@@ -110,5 +110,5 @@ while True:
     roboDirection()
     switchControllerScheme()
     print motorL, motorR
-    RPL.servoWrite(0,500)
-    RPL.servoWrite(1,500)
+    RPL.servoWrite(0,int(KitBotSpeed(motorL)))
+    RPL.servoWrite(1,int(KitBotSpeed(-motorR)))
