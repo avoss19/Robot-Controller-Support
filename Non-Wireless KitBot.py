@@ -1,6 +1,7 @@
 import pygame # controller
 import robotonomy.RoboPiLib as RPL
 import robotonomy.setup
+import pygame.display
 
 # Weclome Screen
 print "#"*60
@@ -43,8 +44,8 @@ maxMotorR = 500
 
 # Initialize pygame
 pygame.init()
+pygame.display.init()
 pygame.joystick.init()
-pygame.display.get_surface()
 
 # get joystick readings
 def joysticks():
