@@ -1,4 +1,6 @@
 import pygame # controller
+import robotonomy.RoboPiLib as RPL
+import robotonomy.setup
 RPL.RoboPiInit("/dev/ttyAMA0",115200)
 
 import sys, tty, termios, signal
@@ -106,6 +108,8 @@ def KitBotSpeed(speed):
     return speed + center
 
 # -------------------Main Program--------------------------
+fd = sys.stdin.fileno() # I don't know what this does
+old_settings = termios.tcgetattr(fd) # this records the existing console settings that are later changed with the tty.setraw... line so that they can be replaced when the loop ends
 signal.signal(signal.SIGALRM, interrupted) # this calls the 'interrupted' method when the alarm goes off
 tty.setraw(sys.stdin.fileno()) # this sets the style of the input
 while True:
