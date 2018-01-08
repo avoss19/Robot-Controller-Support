@@ -4,6 +4,12 @@ import robotonomy.setup
 RPL.RoboPiInit("/dev/ttyAMA0",115200)
 
 import sys, tty, termios, signal
+import os
+
+os.environ['SDL_VIDEODRIVER'] = 'dummy'
+import pygame
+pygame.init()
+pygame.display.set_mode((1,1))
 
 # Weclome Screen
 print "#"*60
@@ -124,6 +130,9 @@ old_settings = termios.tcgetattr(fd) # this records the existing console setting
 tty.setraw(sys.stdin.fileno()) # this sets the style of the input
 SHORT_TIMEOUT = 0.255
 while True:
+    events = pygame.event.get()
+    for e in events:
+        pass
     joysticks()
     roboSpeed()
     roboDirection()
