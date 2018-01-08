@@ -109,6 +109,7 @@ def KitBotSpeed(speed):
 
 # SSH (tested on personal computer, but not robot)
 def sshInit():
+    global client
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.WarningPolicy())
