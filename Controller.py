@@ -1,4 +1,6 @@
 import pygame # controller
+import robotonomy.RoboPiLib as RPL
+import robotonomy.setup
 
 # Weclome Screen
 print "#"*60
@@ -28,8 +30,8 @@ xDeadZoneRight = 0.06
 yDeadZoneRight = 0.06
 
 # motor speeds (assumes there is the same possible speeds going in reverse)
-maxMotorL = 1000
-maxMotorR = 1000
+maxMotorL = 500
+maxMotorR = 500
 
 # Initialize pygame
 pygame.init()
@@ -96,6 +98,10 @@ def switchControllerScheme():
     if joystick.get_button(5) == 1:
         speedMapping = (speedMapping + 1) % 2
 
+def KitBotSpeed(speed):
+    center = 1500
+    return speed + center
+
 
 # -------------------Main Program--------------------------
 while True:
@@ -104,3 +110,5 @@ while True:
     roboDirection()
     switchControllerScheme()
     print motorL, motorR
+    RPL.servoWrite(0,KitBotSpeed(motorL))
+    RPL.servoWrite(1,KitBotSpeed(motorR))
