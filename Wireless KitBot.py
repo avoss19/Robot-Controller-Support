@@ -105,7 +105,7 @@ def KitBotSpeed(speed):
     return speed + center
 
 def interrupted(signum, frame): # this is the method called at the end of the alarm]
-    stopAll()    
+    stopAll()
 
 # -------------------Main Program--------------------------
 # Current Issues:
@@ -115,6 +115,7 @@ fd = sys.stdin.fileno() # I don't know what this does
 old_settings = termios.tcgetattr(fd) # this records the existing console settings that are later changed with the tty.setraw... line so that they can be replaced when the loop ends
 signal.signal(signal.SIGALRM, interrupted) # this calls the 'interrupted' method when the alarm goes off
 tty.setraw(sys.stdin.fileno()) # this sets the style of the input
+SHORT_TIMEOUT = 0.255
 while True:
     signal.setitimer(signal.ITIMER_REAL,SHORT_TIMEOUT) # this sets the alarm
     ch = sys.stdin.read(1) # this reads one character of input without requiring an enter keypress
