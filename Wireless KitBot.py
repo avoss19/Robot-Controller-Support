@@ -7,9 +7,6 @@ import sys, tty, termios, signal
 import os
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy'
-import pygame
-pygame.init()
-pygame.display.set_mode((1,1))
 
 # Weclome Screen
 print "#"*60
@@ -45,6 +42,7 @@ maxMotorR = 500
 # Initialize pygame
 pygame.init()
 pygame.joystick.init()
+pygame.display.set_mode((1,1))
 
 # get joystick readings
 def joysticks():
