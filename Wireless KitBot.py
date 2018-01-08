@@ -23,7 +23,7 @@ else:
     speedMapping = 0
 
 # SSH login
-hostname = "192.168.21.113" # ip address
+hostname = "192.168.21.102" # ip address
 password = "Engineering!1"
 
 username = "student"
