@@ -42,7 +42,7 @@ maxMotorR = 500
 # Initialize pygame
 pygame.init()
 pygame.joystick.init()
-
+pygame.display.init()
 
 # get joystick readings
 def joysticks():
