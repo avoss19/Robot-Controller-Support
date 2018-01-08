@@ -44,7 +44,7 @@ pygame.init()
 pygame.joystick.init()
 
 # get joystick readings
-def joysticks(reading):
+def joysticks():
     global xAxisLeft, yAxisLeft, xAxisRight, yAxisRight, triggerLeft, triggerRight
 
     pygame.event.get()
@@ -108,19 +108,22 @@ def KitBotSpeed(speed):
     return speed + center
 
 # -------------------Main Program--------------------------
+# Current Issues:
+# Does not read input from computer
+
 fd = sys.stdin.fileno() # I don't know what this does
 old_settings = termios.tcgetattr(fd) # this records the existing console settings that are later changed with the tty.setraw... line so that they can be replaced when the loop ends
 signal.signal(signal.SIGALRM, interrupted) # this calls the 'interrupted' method when the alarm goes off
 tty.setraw(sys.stdin.fileno()) # this sets the style of the input
 while True:
-      signal.setitimer(signal.ITIMER_REAL,SHORT_TIMEOUT) # this sets the alarm
-      ch = sys.stdin.read(1) # this reads one character of input without requiring an enter keypress
-      signal.setitimer(signal.ITIMER_REAL,0) # this turns off the alarm
-      if ch == '*': # pressing the asterisk key kills the process
+    signal.setitimer(signal.ITIMER_REAL,SHORT_TIMEOUT) # this sets the alarm
+    ch = sys.stdin.read(1) # this reads one character of input without requiring an enter keypress
+    signal.setitimer(signal.ITIMER_REAL,0) # this turns off the alarm
+    if ch == '*': # pressing the asterisk key kills the process
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings) # this resets the console settings
         break # this ends the loop
-      joysticks(ch)
-      roboSpeed()
-      roboDirection()
-      RPL.servoWrite(KitBotSpeed(motorL, motorR))
-      switchControllerScheme()
+    joysticks()
+    roboSpeed()
+    roboDirection()
+    RPL.servoWrite(KitBotSpeed(motorL, motorR))
+    switchControllerScheme()
