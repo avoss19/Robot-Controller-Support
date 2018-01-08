@@ -110,5 +110,5 @@ while True:
     roboDirection()
     switchControllerScheme()
     print motorL, motorR
-    RPL.servoWrite(0,KitBotSpeed(motorL))
-    RPL.servoWrite(1,KitBotSpeed(motorR))
+    RPL.servoWrite(0,500)
+    RPL.servoWrite(1,500)
