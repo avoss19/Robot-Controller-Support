@@ -1,6 +1,4 @@
 import pygame # controller
-import sys, paramiko # ssh
-import pygame.display
 
 # Weclome Screen
 print "#"*60
@@ -22,13 +20,6 @@ if speedMapping == 1:
     speedMapping = 1
 else:
     speedMapping = 0
-
-# SSH login
-hostname = "" # ip address
-password = ""
-
-username = ""
-port = 22 # default port for ssh
 
 # left and right joystick dead zones (current dead zone for ps4 controller)
 xDeadZoneLeft = 0.06
@@ -105,16 +96,6 @@ def switchControllerScheme():
     if joystick.get_button(5) == 1:
         speedMapping = (speedMapping + 1) % 2
 
-# SSH (tested on personal computer, but not robot)
-def SSH(command):
-    client = paramiko.SSHClient()
-    client.load_system_host_keys()
-    client.set_missing_host_key_policy(paramiko.WarningPolicy)
-
-    client.connect(hostname, port=port, username=username, password=password)
-
-    stdin, stdout, stderr = client.exec_command(command)
-    print stdout.read(),
 
 # -------------------Main Program--------------------------
 while True:

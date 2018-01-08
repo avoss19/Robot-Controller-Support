@@ -1,5 +1,8 @@
 import pygame # controller
 import sys, paramiko # ssh
+RPL.RoboPiInit("/dev/ttyAMA0",115200)
+
+import sys, tty, termios, signal
 
 # Weclome Screen
 print "#"*60
@@ -120,10 +123,14 @@ def KitBotCommands(left, right):
     stdin, stdout, stderr = client.exec_command('python Robot-Controller-Support/Robot.py %d %d' % (left, right))
 
 # -------------------Main Program--------------------------
-sshInit()
 while True:
-    joysticks()
-    roboSpeed()
-    roboDirection()
-    switchControllerScheme()
-    KitBotCommands(KitBotSpeed(motorL), -KitBotSpeed(motorR))
+  signal.setitimer(signal.ITIMER_REAL,SHORT_TIMEOUT) # this sets the alarm
+  ch = sys.stdin.read(1) # this reads one character of input without requiring an enter keypress
+  signal.setitimer(signal.ITIMER_REAL,0) # this turns off the alarm
+  if ch == '*': # pressing the asterisk key kills the process
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings) # this resets the console settings
+    break # this ends the loop
+  joysticks()
+  roboSpeed()
+  roboDirection()
+  switchControllerScheme()
