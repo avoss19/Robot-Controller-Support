@@ -1,5 +1,4 @@
 import pygame # controller
-import pygame.display
 import robotonomy.RoboPiLib as RPL
 import robotonomy.setup
 RPL.RoboPiInit("/dev/ttyAMA0",115200)
@@ -40,7 +39,6 @@ maxMotorR = 500
 # Initialize pygame
 pygame.init()
 pygame.joystick.init()
-pygame.display.init()
 
 # get joystick readings
 def joysticks():
