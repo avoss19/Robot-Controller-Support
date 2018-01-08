@@ -1,5 +1,4 @@
 import pygame # controller
-import sys, paramiko # ssh
 import robotonomy.RoboPiLib as RPL
 import setup
 
