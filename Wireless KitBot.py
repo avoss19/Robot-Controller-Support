@@ -44,7 +44,7 @@ pygame.init()
 pygame.joystick.init()
 
 # get joystick readings
-def joysticks():
+def joysticks(reading):
     global xAxisLeft, yAxisLeft, xAxisRight, yAxisRight, triggerLeft, triggerRight
 
     pygame.event.get()
@@ -119,7 +119,7 @@ while True:
       if ch == '*': # pressing the asterisk key kills the process
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings) # this resets the console settings
         break # this ends the loop
-      joysticks()
+      joysticks(ch)
       roboSpeed()
       roboDirection()
       RPL.servoWrite(KitBotSpeed(motorL, motorR))
