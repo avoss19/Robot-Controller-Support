@@ -6,7 +6,7 @@ RPL.RoboPiInit("/dev/ttyAMA0",115200)
 import sys, tty, termios, signal
 import os
 
-os.environ['SDL_VIDEODRIVER'] = 'dummy'
+os.putenv('SDL_VIDEODRIVER', 'fbcon')
 
 # Weclome Screen
 print "#"*60
