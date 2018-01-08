@@ -45,10 +45,6 @@ $ python get-pip.py
 ```
 $ pip install pygame
 ```
-- paramiko
-```
-$ pip install paramiko
-```
 
 ## Mapping Options
 
